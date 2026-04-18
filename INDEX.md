@@ -1,12 +1,15 @@
 # Index — Digit Recognizer MLOps Documentation
 
-> Complete table of contents for the project. Each section is a standalone document.
+> Complete documentation index. Each section is a standalone document that can be read independently.
+
+*← [README](README.md)*
 
 ---
 
 ## Part I — Foundation
 
-### [01 · Project Overview](docs/01-project-overview/architecture.md)
+### [01 · Project Architecture](docs/01-project-overview/architecture.md)
+
 - System architecture diagram
 - Component responsibilities
 - Technology choices and rationale
@@ -17,8 +20,9 @@
 ## Part II — The Model
 
 ### [02 · The Neural Network](docs/02-base-model/neural-network.md)
+
 - Network architecture (`784 → 128 → 64 → 10`)
-- Mathematical foundations (forward pass, backprop, He init)
+- Mathematical foundations (forward pass, backprop, He initialization)
 - Training configuration (batch size, learning rate, epochs)
 - Achieved accuracy on MNIST test set
 - How the model is saved to `model.pkl`
@@ -29,6 +33,7 @@
 ## Part III — The API
 
 ### [03 · FastAPI Service](docs/03-api-layer/fastapi-service.md)
+
 - Why FastAPI
 - Application structure (`main.py`)
 - Startup: loading the model once into memory
@@ -45,6 +50,7 @@
 ## Part IV — Containerization
 
 ### [04 · Docker](docs/04-containerization/docker.md)
+
 - Why Docker for ML services
 - `Dockerfile` walkthrough — every instruction explained
 - `requirements.txt` — pinned dependencies
@@ -58,6 +64,7 @@
 ## Part V — Server Deployment
 
 ### [05 · Deploying on the Linux Server](docs/05-server-deployment/deployment.md)
+
 - Server preparation (Ubuntu 24.04 LTS)
 - Installing Docker on the server
 - Copying the project to the server (SCP / Git)
@@ -71,6 +78,7 @@
 ## Part VI — Nginx and HTTPS
 
 ### [06 · Nginx Reverse Proxy and HTTPS](docs/06-nginx-https/nginx-setup.md)
+
 - Installing and verifying Nginx
 - Writing the server block configuration
 - Reverse proxying: `domain → localhost:8000`
@@ -85,6 +93,7 @@
 ## Part VII — Observability
 
 ### [07 · Logging](docs/07-logging/logging.md)
+
 - What is logged and why
 - Python `logging` configuration
 - Log format: timestamp, endpoint, input, prediction, latency
@@ -97,11 +106,12 @@
 ## Part VIII — Networking
 
 ### [08 · Networking Flow](docs/08-networking-flow/networking-flow.md)
+
 - End-to-end request lifecycle
 - Layer-by-layer breakdown: Client → Cloudflare → Nginx → Docker → FastAPI → Model
 - Port map
 - How Nginx and Docker communicate
-- TLS termination point
+- TLS termination points
 - What happens on each `/predict` call
 
 ---
@@ -110,12 +120,13 @@
 
 | File | Description |
 |---|---|
-| `README.md` | Project introduction |
+| `README.md` | Project introduction and quick navigation |
 | `INDEX.md` | This file |
+| `LICENSE` | MIT License |
 | `Dockerfile` | Container definition |
 | `app/main.py` | FastAPI application entrypoint |
 | `app/model.pkl` | Serialized trained model |
-| `app/requirements.txt` | Python dependency list |
+| `app/requirements.txt` | Pinned Python dependency list |
 | `docs/01-project-overview/architecture.md` | System architecture |
 | `docs/02-base-model/neural-network.md` | Model documentation |
 | `docs/03-api-layer/fastapi-service.md` | API documentation |
@@ -124,7 +135,3 @@
 | `docs/06-nginx-https/nginx-setup.md` | Nginx and HTTPS setup |
 | `docs/07-logging/logging.md` | Logging configuration |
 | `docs/08-networking-flow/networking-flow.md` | Request lifecycle |
-
----
-
-*← [README](README.md)*
